@@ -1,18 +1,32 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
 
-//Bootstrap
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+// Bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap"
+import "bootstrap";
 
-// index.css'
-import '../styles/index.css'
+// index.css
+import '../styles/index.css';
 
-// components
-import Home from './components/Home';
+// Components
+import Counter from './components/Contador';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Home/>
-  </React.StrictMode>,
-)
+let sumatoria = 0;
+
+
+function sumarSegundos() {
+  
+  setInterval(() => {
+    
+    ReactDOM.createRoot(document.getElementById('root')).render(
+      <React.StrictMode>
+        <h1>Contador Automático</h1>
+        <Counter seconds={sumatoria} />
+      </React.StrictMode>
+    );
+    sumatoria++;
+  }, 1000);
+}
+
+sumarSegundos();
